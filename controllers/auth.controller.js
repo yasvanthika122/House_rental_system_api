@@ -39,13 +39,13 @@ export const google = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
-      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+      const token = jwt.sign({ id: user._id }, '92b71f86c3610e6f8ee889265046b674b7e4b7d12b6d4bf463b1c0e3b764c9a7');
       const { password: pass, ...rest } = user._doc;
       res
         .cookie('access_token', token, { httpOnly: true })
         .status(200)
         .json(rest);
-        console.log('JWT_SECRET:', process.env.JWT_SECRET);
+        console.log('JWT_SECRET:', '92b71f86c3610e6f8ee889265046b674b7e4b7d12b6d4bf463b1c0e3b764c9a7');
     } else {
       const generatedPassword =
         Math.random().toString(36).slice(-8) +
