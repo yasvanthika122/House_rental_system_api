@@ -45,7 +45,7 @@ export const google = async (req, res, next) => {
         .cookie('access_token', token, { httpOnly: true })
         .status(200)
         .json(rest);
-        console.log('JWT_SECRET:', '92b71f86c3610e6f8ee889265046b674b7e4b7d12b6d4bf463b1c0e3b764c9a7');
+        
     } else {
       const generatedPassword =
         Math.random().toString(36).slice(-8) +
